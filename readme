@@ -1,4 +1,5 @@
 SELECT * FROM d119358_tak22book.books;
 select * from d119358_tak22book.books where type ="new" and release_date >="2010" order by release_date, type;
 select * from d119358_tak22book.books where release_date <= "1970" and type = "used" and price <= "20" order by release_date, type, price;
-SELECT count(*) as Tellimuste_arv, year(order_date) as Aasta  from d119358_tak22book.orders group by year(order_date);
+select count(*) as Tellimuste_arv, year(order_date) as Aasta  from d119358_tak22book.orders group by year(order_date);
+select SUM(price) as Summa, count(*) as Tellimuste_arv, year(order_date) as Aasta from d119358_tak22book.orders o left join books b on o.book_id = b.id group by year(order_date);
